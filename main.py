@@ -23,7 +23,12 @@ def hangman():
 
     while length >= 0:
         print("You have used these letters: ", ''.join(used_letters))
-        word_list = [letter if letter in used_letters else "-" for letter in word]
+        word_list = []
+        for letter in word:
+            if letter in used_letters:
+                word_list.append(letter)
+            else:
+                word_list.append("-")
         print("Current word: ", " ".join(word_list))
         if len(word_letters) > 0:
             user_letter = input("Guess a letter: ").upper()
